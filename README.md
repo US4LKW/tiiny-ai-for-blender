@@ -70,7 +70,7 @@ Because TRELLIS.2 has many configurable parameters, I kept advanced controls acc
 
 ## Quick installation
 
-1. Download **[`tiiny_ai_for_blender-0.1.0.zip`](releases/tiiny_ai_for_blender-0.1.0.zip)**. **Do not extract it.** Do not install GitHub's automatically generated repository ZIP as the Blender extension.
+1. Download **[`tiiny_ai_for_blender-0.1.0.zip`](https://github.com/US4LKW/tiiny-ai-for-blender/releases/download/v0.1.0/tiiny_ai_for_blender-0.1.0.zip)**. **Do not extract it.** Do not install GitHub's automatically generated repository ZIP as the Blender extension.
 2. In Blender, open **Edit → Preferences → Get Extensions**. Open the menu and choose **Install from Disk**.
 3. Select the extension ZIP and enable **Tiiny AI** if prompted.
 4. Find **Tiiny AI** under **Preferences → Add-ons**. Enter the Tiiny API address (for example `http://tiinyhost.local`) and your personal API key. Never publish your key.
