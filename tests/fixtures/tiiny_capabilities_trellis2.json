@@ -1,0 +1,307 @@
+{
+  "model": "trellis2",
+  "stages": [
+    "background",
+    "shape",
+    "simplify",
+    "texture",
+    "export"
+  ],
+  "inference_qualities": [
+    "fast",
+    "balance",
+    "quality"
+  ],
+  "asset_qualities": [
+    "fast",
+    "balance",
+    "quality"
+  ],
+  "inputs": {
+    "background": [
+      "image"
+    ],
+    "shape": [
+      "image"
+    ],
+    "simplify": [
+      "shape_artifact"
+    ],
+    "texture": [
+      "shape_artifact"
+    ],
+    "export": [
+      "geometry_artifact",
+      "material_artifact",
+      "mesh_glb",
+      "shape_artifact"
+    ]
+  },
+  "params": {
+    "background": [
+      "return_mask"
+    ],
+    "shape": [
+      "pipeline_type"
+    ],
+    "simplify": [
+      "project_geometry",
+      "remesh_closing_iterations",
+      "remesh_resolution",
+      "simplify",
+      "target_faces"
+    ],
+    "texture": [
+      "inference_quality",
+      "seed"
+    ],
+    "export": [
+      "bake_projection",
+      "output_name",
+      "texture_size"
+    ]
+  },
+  "stage_specs": {
+    "background": {
+      "required_inputs": [
+        "image"
+      ],
+      "optional_inputs": [],
+      "params": {
+        "return_mask": {
+          "default": false,
+          "description": "Include the alpha mask in the response",
+          "title": "Return Mask",
+          "type": "boolean"
+        }
+      },
+      "definitions": {},
+      "controls": []
+    },
+    "shape": {
+      "required_inputs": [
+        "image"
+      ],
+      "optional_inputs": [],
+      "params": {
+        "pipeline_type": {
+          "anyOf": [
+            {
+              "enum": [
+                "512",
+                "1024"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Pipeline Type"
+        }
+      },
+      "definitions": {},
+      "controls": [
+        "seed",
+        "output_precision",
+        "inference_quality"
+      ]
+    },
+    "simplify": {
+      "required_inputs": [
+        "shape_artifact"
+      ],
+      "optional_inputs": [],
+      "params": {
+        "simplify": {
+          "default": true,
+          "description": "Whether to run mesh decimation",
+          "title": "Simplify",
+          "type": "boolean"
+        },
+        "target_faces": {
+          "anyOf": [
+            {
+              "maximum": 2000000,
+              "minimum": 4,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Requested output face count when simplification is enabled",
+          "title": "Decimation Target"
+        },
+        "remesh_resolution": {
+          "anyOf": [
+            {
+              "maximum": 512,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remesh Resolution"
+        },
+        "remesh_closing_iterations": {
+          "anyOf": [
+            {
+              "maximum": 8,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remesh Closing Iterations"
+        },
+        "project_geometry": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Override asset-quality geometry projection",
+          "title": "Project Geometry"
+        }
+      },
+      "definitions": {},
+      "controls": [
+        "asset_quality"
+      ]
+    },
+    "texture": {
+      "required_inputs": [
+        "shape_artifact"
+      ],
+      "optional_inputs": [],
+      "params": {
+        "seed": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Defaults to the shape artifact seed",
+          "title": "Seed"
+        },
+        "inference_quality": {
+          "anyOf": [
+            {
+              "enum": [
+                "fast",
+                "balance",
+                "quality"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Texture sampling quality; defaults to the shape artifact inference quality",
+          "title": "Inference Quality"
+        }
+      },
+      "definitions": {},
+      "controls": [
+        "seed",
+        "inference_quality"
+      ]
+    },
+    "export": {
+      "required_inputs": [
+        "material_artifact",
+        "shape_artifact"
+      ],
+      "optional_inputs": [
+        "geometry_artifact",
+        "mesh_glb"
+      ],
+      "params": {
+        "output_name": {
+          "default": "trellis2.glb",
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Output Name",
+          "type": "string"
+        },
+        "texture_size": {
+          "anyOf": [
+            {
+              "maximum": 8192,
+              "minimum": 256,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Texture Size"
+        },
+        "bake_projection": {
+          "anyOf": [
+            {
+              "enum": [
+                "vertex_fallback",
+                "texel"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bake Projection"
+        }
+      },
+      "definitions": {},
+      "controls": [
+        "asset_quality"
+      ]
+    }
+  },
+  "controls": {
+    "pause": true,
+    "resume": true,
+    "cancel": true,
+    "checkpoint": true
+  },
+  "output_precisions": {
+    "draft": {
+      "effective": "standard",
+      "pipeline_type": "512"
+    },
+    "standard": {
+      "effective": "standard",
+      "pipeline_type": "512"
+    },
+    "high": {
+      "effective": "high",
+      "pipeline_type": "1024"
+    }
+  },
+  "input_refs": true,
+  "server_version": "2.0.0",
+  "api_schema": "image-to-3d/v2",
+  "artifact_contract": "result.output.artifacts"
+}

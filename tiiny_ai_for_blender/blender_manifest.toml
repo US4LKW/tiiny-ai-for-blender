@@ -1,0 +1,14 @@
+schema_version = "1.0.0"
+id = "tiiny_ai_for_blender"
+version = "0.1.0"
+name = "Tiiny AI"
+tagline = "Local image-to-3D generation with Tiiny Pocket Lab"
+maintainer = "Tiiny AI for Blender contributors"
+type = "add-on"
+blender_version_min = "4.3.0"
+license = ["SPDX:MIT"]
+
+[permissions]
+network = "Connect to local Tiiny and download optional image tools"
+files = "Read images and save generated meshes and local caches"
+clipboard = "Copy detailed generation diagnostics"

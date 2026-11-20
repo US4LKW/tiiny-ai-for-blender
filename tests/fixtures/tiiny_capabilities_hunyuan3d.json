@@ -1,0 +1,85 @@
+{
+  "model": "hunyuan3d",
+  "stages": [
+    "background",
+    "shape",
+    "simplify",
+    "texture",
+    "export"
+  ],
+  "output_precisions": {
+    "draft": {
+      "octree_resolution": 192
+    },
+    "standard": {
+      "octree_resolution": 288
+    },
+    "high": {
+      "octree_resolution": 384
+    }
+  },
+  "inference_qualities": [
+    "fast",
+    "balance",
+    "quality"
+  ],
+  "asset_qualities": [
+    "fast",
+    "balance",
+    "quality"
+  ],
+  "inputs": {
+    "background": [
+      "image"
+    ],
+    "shape": [
+      "image"
+    ],
+    "simplify": [
+      "mesh"
+    ],
+    "texture": [
+      "image",
+      "mesh"
+    ],
+    "export": [
+      "material_artifact",
+      "mesh_glb"
+    ]
+  },
+  "params": {
+    "background": [
+      "return_mask"
+    ],
+    "shape": [
+      "auto_smooth_angle",
+      "guidance_scale",
+      "mc_level",
+      "merge_vertices",
+      "shade_type",
+      "step"
+    ],
+    "simplify": [
+      "simplify",
+      "target_faces"
+    ],
+    "texture": [
+      "guidance_scale",
+      "paint_step"
+    ],
+    "export": [
+      "depth_tolerance",
+      "output_name",
+      "supersample",
+      "texture_size"
+    ]
+  },
+  "controls": {
+    "pause": true,
+    "resume": true,
+    "checkpoint": true
+  },
+  "server_version": "2.0.0",
+  "api_schema": "image-to-3d/v2",
+  "artifact_contract": "result.output.artifacts"
+}

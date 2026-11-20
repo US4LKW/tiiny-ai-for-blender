@@ -1,0 +1,7 @@
+Repository name: tiiny-ai-for-blender
+Repository title: Tiiny AI for Blender — Local AI-Powered Image-to-3D
+Description: Blender extension for local Image-to-3D with Tiiny AI Pocket Lab, Hunyuan3D, TRELLIS.2, PBR textures and automatic image preparation.
+Topics: blender, blender-extension, image-to-3d, tiiny-ai, hunyuan3d, trellis, local-ai, 3d-generation
+First release tag: v0.1.0
+First release title: Tiiny AI for Blender v0.1.0 — First Community Preview
+Release type: Pre-release
