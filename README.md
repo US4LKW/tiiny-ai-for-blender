@@ -6,7 +6,7 @@
 
 **First Community Preview · v0.1.0 · Blender 4.3+ · MIT License**
 
-[**Download the Blender extension (.zip)**](https://github.com/US4LKW/tiiny-ai-for-blender/releases/download/v0.1.0/tiiny_ai_for_blender-0.1.0.zip) · [**Illustrated User Guide**](docs/USER_GUIDE.md) · [Release Notes](RELEASE_NOTES_v0.1.0.md) · [Report an Issue](https://github.com/US4LKW/tiiny-ai-for-blender/issues)
+[**Download the Blender extension (.zip)**](https://github.com/US4LKW/tiiny-ai-for-blender/releases/download/v0.1.0/tiiny_ai_for_blender-0.1.0.zip) · [**Illustrated User Guide**](docs/USER_GUIDE.md) · [Release Notes](https://github.com/US4LKW/tiiny-ai-for-blender/releases) · [Report an Issue](https://github.com/US4LKW/tiiny-ai-for-blender/issues)
 
 > **Independent community project.** This is not an official product of Blender, Tiiny AI, Tencent, or Microsoft. A compatible Tiiny AI Pocket Lab is required for 3D generation. The extension does not itself run the 3D models on your computer, and no separate Blender MCP server is required.
 
